@@ -8,4 +8,7 @@ class Event < ApplicationRecord
         presence: true,
         uniqueness: true,
       )
+      validates(:start_time,
+        presence: true
+      )
 end
