@@ -1,10 +1,19 @@
-<h2><%=@event.title%></h2>
-<p><%= @event.description %></p>
+<h2>Title <%=@event.title%></h2>
+<p>Description <%= @event.description %></p>
 <p><%= @event.location %></p>
-<p><%= @event.image_url %></p>
-<p><%= @event.price %></p>
+<img src=<%= @event.image_url %>>
+<p>Price <%= @event.price %></p>
 <p><%= @event.participants %></p>
-<p><%= @event.start_time %></p>
-<p><%= @event.created_at %></p>
-<%= link_to "Edit", edit_event_path(@event) %>
-<%= link_to "Delete", event_path(@event), method: :delete, data: {confirm: "Are you sure?"} %>
+<p>Start Time <%= @event.start_time %></p>
+<p>Updated At <%= @event.updated_at %></p>
+<% if @tag.present? && @tag.persisted? %>
+  <%= link_to "Un-tag", event_tag_path(@event, @tag), method: :delete %>
+<% else %>
+  <%= link_to "tag", event_tags_path(@event), method: :post %>
+<% end %>
+<% if can? :edit, @event %>
+  <%= link_to "Edit", edit_event_path(@event) %>
+<% end %>
+<% if can? :destroy, @event %>
+  <%= link_to "Delete", event_path(@event), method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>

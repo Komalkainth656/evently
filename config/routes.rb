@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
  get "/", to: "welcome#root", as: 'root'
-resources :events
-
+ resources :events do
+  resources :tags, only: [:create, :destroy]
+end
 end

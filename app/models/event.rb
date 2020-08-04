@@ -8,7 +8,13 @@ class Event < ApplicationRecord
         presence: true,
         uniqueness: true,
       )
+      belongs_to :user
       validates(:start_time,
         presence: true
       )
+      has_many :tags, dependent: :destroy
+  has_many :users, through: :tags
+  def tag_for(user)
+    tags.find_by_user_id(user)
+  end
 end
