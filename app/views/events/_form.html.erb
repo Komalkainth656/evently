@@ -1,0 +1,34 @@
+<% if @event.errors.any? %>
+  <ul>
+    <% @event.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for @event do |f| %>
+  <div>
+    <%= f.label :Title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :Image_Url  %>
+    <%= f.text_field :image_url %>
+  </div>
+  <div>
+    <%= f.label :Description %>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+    <%= f.label :Laocation %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :Sart_Time %>
+    <%= f.text_area :start_time %>
+  </div>
+  <div>
+    <%= f.label :Price %>
+    <%= f.text_area :price %>
+  </div>
+  <%= f.submit %>
+<% end %>

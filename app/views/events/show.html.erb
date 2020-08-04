@@ -1,0 +1,10 @@
+<h2><%=@event.title%></h2>
+<p><%= @event.description %></p>
+<p><%= @event.location %></p>
+<p><%= @event.image_url %></p>
+<p><%= @event.price %></p>
+<p><%= @event.participants %></p>
+<p><%= @event.start_time %></p>
+<p><%= @event.created_at %></p>
+<%= link_to "Edit", edit_event_path(@event) %>
+<%= link_to "Delete", event_path(@event), method: :delete, data: {confirm: "Are you sure?"} %>
