@@ -1,0 +1,10 @@
+<h1>All Events</h1>
+<% @events.each do |event|  %>
+  <div>
+    <h2><%= link_to event.title, event_path(event) %></h2>
+    <p><%= event.description %></p>
+    <img src=<%= event.image_url %>>
+    <p>Updated At <%= event.updated_at %></p>
+    <hr>
+  </div>
+<% end %>

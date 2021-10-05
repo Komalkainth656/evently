@@ -1,0 +1,22 @@
+<nav class='navbar navbar-light bg-light mb-5'>
+  <ul>
+    <span class='navbar-brand mb-0 h1'>Events
+      <%= link_to 'Root', root_path, class: 'nav-item' %>
+      |
+      <%= link_to 'View Events', events_path, class: 'nav-item' %>
+      |
+      <%= link_to 'Post Events', new_event_path, class: 'nav-item' %>
+    </span>
+  </ul>
+  <div>
+   <% if user_signed_in? %>
+    Hello <%= current_user.full_name %>,
+    <%= link_to "Logout", sessions_path, method: :delete,
+             data: {confirm: "are you sure you want to log out?"}%>
+  <% else %>
+    <%= link_to "Login", new_session_path %> |
+    <%= link_to "Sign Up", new_user_path %>
+  <% end %>
+  <hr>
+  </div>
+</nav>
